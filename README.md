@@ -4,4 +4,4 @@ This project was bootstrapped with:
 
 Get started:
 
-    yarn start
+    $ yarn start
