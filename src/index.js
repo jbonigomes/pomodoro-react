@@ -4,6 +4,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 
+import { rules } from './app/rules';
 import { helpers } from './app/helpers';
 import { handlers } from './app/handlers';
 import { pomodoro } from './app/reducers';
@@ -55,8 +56,11 @@ const render = () => ReactDOM.render(
     </div>
 
     <div className="circle">
-      <div className="background"></div>
-      <div className="cover"></div>
+      <div className={`background ${rules.isSession(store.getState()) ? 'green' : 'red'}`}></div>
+      <div
+        className="cover"
+        style={{height: `${helpers.formatPercentage(store.getState())}`}}>
+      </div>
       <div className="title">{store.getState().name}</div>
       <div className="timer">{helpers.formatTime(store.getState().time)}</div>
       <div className="toggle-paused" onClick={handlers.togglePaused(store)}></div>
