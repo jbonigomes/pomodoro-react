@@ -2,6 +2,7 @@ import './index.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import { createStore } from 'redux';
 
 import { rules } from './app/rules';
@@ -26,36 +27,20 @@ const render = () => ReactDOM.render(
     <div className="controls">
       <div>
         <div>BREAK LENGTH</div>
-        <span
-          className="subtract-break-length"
-          onClick={handlers.subtractBreakLength(store)}>
-          -
-        </span>
-        <span className="b-len">{store.getState().breakLength}</span>
-        <span
-          className="add-break-length"
-          onClick={handlers.addBreakLength(store)}>
-          +
-        </span>
+        <i onClick={handlers.subtractBreakLength(store)}>-</i>
+        <span>{store.getState().breakLength}</span>
+        <i onClick={handlers.addBreakLength(store)}>+</i>
       </div>
 
       <div>
         <div>SESSION LENGTH</div>
-        <span
-          className="subtract-session-length"
-          onClick={handlers.subtractSessionLength(store)}>
-          -
-        </span>
-        <span className="s-len">{store.getState().sessionLength}</span>
-        <span
-          className="add-session-length"
-          onClick={handlers.addSessionLength(store)}>
-          +
-        </span>
+        <i onClick={handlers.subtractSessionLength(store)}>-</i>
+        <span>{store.getState().sessionLength}</span>
+        <i onClick={handlers.addSessionLength(store)}>+</i>
       </div>
     </div>
 
-    <div className="circle">
+    <div className="circle" onClick={handlers.togglePaused(store)}>
       <div className={`background ${rules.isSession(store.getState()) ? 'green' : 'red'}`}></div>
       <div
         className="cover"
@@ -63,7 +48,6 @@ const render = () => ReactDOM.render(
       </div>
       <div className="title">{store.getState().name}</div>
       <div className="timer">{helpers.formatTime(store.getState().time)}</div>
-      <div className="toggle-paused" onClick={handlers.togglePaused(store)}></div>
     </div>
   </div>,
   document.getElementById('pomodoro')

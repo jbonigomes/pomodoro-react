@@ -28,8 +28,16 @@ h1 {
   font-family: 'Lobster', cursive;
 }
 
-span {
+span, i {
   font-size: 30px;
+}
+
+i {
+  padding: 10px;
+  cursor: pointer;
+  user-select: none;
+  font-style: normal;
+  display: inline-block;
 }
 
 .controls {
@@ -42,16 +50,6 @@ span {
   width: 150px;
 }
 
-.add-break-length,
-.add-session-length,
-.subtract-break-length,
-.subtract-session-length {
-  padding: 10px;
-  cursor: pointer;
-  user-select: none;
-  display: inline-block;
-}
-
 .pomodoro {
   width: 300px;
   margin: 0 auto;
@@ -61,6 +59,7 @@ span {
   width: 300px;
   padding: 10px;
   height: 300px;
+  cursor: pointer;
   overflow: hidden;
   position: relative;
   border-radius: 50%;
@@ -107,14 +106,5 @@ span {
   top: 150px;
   width: 100%;
   font-size: 50px;
-  position: absolute;
-}
-
-.toggle-paused {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
   position: absolute;
 }
